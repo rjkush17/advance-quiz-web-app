@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Quizscreen from "./Components/quizscreen";
+import Quizscreen from "./Components/Quizscreen";
 
 function App() {
   const [screen, setScreen] = useState(true);

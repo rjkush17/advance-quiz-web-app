@@ -23,7 +23,6 @@ function App() {
         };
       });
     }
-    console.log(e.target.value);
   };
 
   return (
@@ -76,15 +75,15 @@ function App() {
               <option value="&category=21">Sports</option>
               <option value="&category=22">Geography</option>
               <option value="&category=23">History</option>
-              <option value="&category=24">Art</option>
-              <option value="&category=25">Celebrities</option>
-              <option value="&category=26">Animals</option>
-              <option value="&category=27">Vehicles</option>
-              <option value="&category=28">Entertainment: Comics</option>
-              <option value="&category=29">Science: Gadgets</option>
-              <option value="&category=30">Entertainment: Japanese Anime & Manga</option>
-              <option value="&category=31">Entertainment: Cartoon & Animations</option>
-              <option value="&category=32">Sports: Cricket</option>
+              <option value="&category=24">politics</option>
+              <option value="&category=25">Arts </option>
+              <option value="&category=26">Celebrities </option>
+              <option value="&category=27"> Animals</option>
+              <option value="&category=28"> Vehicles</option>
+              <option value="&category=29">Entertainment: Comics</option>
+              <option value="&category=30"> Science: Gadgets </option>
+              <option value="&category=31">Entertainment: Japanese Anime & Manga</option>
+              <option value="&category=32">Entertainment: Cartoon & Animations </option>
             </select>
           </div>
 

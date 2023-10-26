@@ -9,8 +9,15 @@ function App() {
     level: "",
     type: "",
   });
+  const [time, setTime] = useState({
+    minutes : 0,
+    seconds : 15
+  })
 
   const handleScreen = () => {
+    if(time.minutes == time.seconds){
+      alert("Set Atleast 15sec or more ")
+    }
     setScreen(!screen);
   };
 
@@ -25,6 +32,16 @@ function App() {
     }
   };
 
+  const handleChange2 = (e) => {
+
+    setTime((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
   return (
     <>
       {screen ? (
@@ -36,7 +53,7 @@ function App() {
               How many Quiz question do you want ?
             </label>
             <select onChange={handleChange} name="question" id="question">
-              <option value='5'>5</option>
+              <option value="5">5</option>
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
@@ -46,7 +63,7 @@ function App() {
               <option value="40">40</option>
               <option value="45">45</option>
               <option value="50">50</option>
-            </select>{" "}
+            </select>
           </div>
 
           <div className="wapper">
@@ -64,7 +81,9 @@ function App() {
               <option value="&category=10">Entertainment: Books</option>
               <option value="&category=11">Entertainment: Film</option>
               <option value="&category=12">Entertainment: Music</option>
-              <option value="&category=13">Entertainment: Musicals & Theatres</option>
+              <option value="&category=13">
+                Entertainment: Musicals & Theatres
+              </option>
               <option value="&category=14">Entertainment: Television</option>
               <option value="&category=15">Entertainment: Video Games</option>
               <option value="&category=16">Entertainment: Board Games</option>
@@ -82,8 +101,12 @@ function App() {
               <option value="&category=28"> Vehicles</option>
               <option value="&category=29">Entertainment: Comics</option>
               <option value="&category=30"> Science: Gadgets </option>
-              <option value="&category=31">Entertainment: Japanese Anime & Manga</option>
-              <option value="&category=32">Entertainment: Cartoon & Animations </option>
+              <option value="&category=31">
+                Entertainment: Japanese Anime & Manga
+              </option>
+              <option value="&category=32">
+                Entertainment: Cartoon & Animations{" "}
+              </option>
             </select>
           </div>
 
@@ -106,11 +129,30 @@ function App() {
             </select>
           </div>
 
+          <div className="wapper">
+            <label htmlFor="minutes">Time In Min</label>
+            <select onChange={handleChange2} name="minutes" id="minutes">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="5">5</option>
+            </select>
+
+            <label htmlFor="seconds">seconds</label>
+            <select onChange={handleChange2} name="seconds" id="seconds">
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="0">0</option>
+            </select>
+          </div>
+
           <button onClick={handleScreen}>Start Quiz</button>
         </>
       ) : (
         <>
-          <Quizscreen handleScreen={handleScreen} inputValue={inputValue} />
+          <Quizscreen handleScreen={handleScreen} inputValue={inputValue} time={time} />
         </>
       )}
     </>

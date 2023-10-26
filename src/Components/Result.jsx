@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Result({ score, data }) {
+function Result({ score, data, handleScreen }) {
   const [screens, setScreens] = useState(true);
 
   const handlescreens = () => {
@@ -31,17 +31,19 @@ function Result({ score, data }) {
       {!screens && (
         <div>
           {data.map((val, ind) => (
-            <div>
+            <div key={ind}>
                 <h2>Q-{ind+1}. {val.question}</h2>
                 <h3>{val.correct_answer}</h3>
-                <h5>Category - : {val.category}</h5>
+                <h5>Category -: {val.category}</h5>
                 <h5>Level-: {val.difficulty}</h5>
-                <h5>Type - : {val.type}</h5>
+                <h5>Type -: {val.type}</h5>
 
             </div>
           ))}
         </div>
       )}
+
+      <button onClick={handleScreen}>Home</button>
     </div>
   );
 }

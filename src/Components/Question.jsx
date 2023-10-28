@@ -10,7 +10,7 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
     [answers[0], answers[randomIndex]] = [answers[randomIndex], answers[0]];
 
     setMixedAnswers(answers);
-  }, []);
+  }, [handleAnswer]);
 
   useEffect(() => {
     let min = parseInt(time.minutes);
@@ -21,10 +21,10 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
-          // Timer has reached 0, call handleAnswer with a default value or your logic
-          handleAnswer("Time's up!"); // Example: pass a message when time runs out
-          clearInterval(interval); // Clear the interval to stop the timer
-          return 0; // Set timer to 0 to prevent negative values
+         
+          handleAnswer("Time's up!"); 
+          clearInterval(interval); 
+          return 0; 
         }
         return prevTimer - 1;
       });
@@ -33,7 +33,7 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
     return () => {
       clearInterval(interval);
     };
-  }, [handleAnswer, time]); // Include handleAnswer and time as dependencies to prevent stale closures
+  }, [handleAnswer, time]); 
 
   return (
     <div>

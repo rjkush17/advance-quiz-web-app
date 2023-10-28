@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Quizscreen from "./Components/Quizscreen";
+import quiz from "./assets/img/5210980.jpg"
+import Button from "./Components/Button";
 
 function App() {
   const [screen, setScreen] = useState(true);
@@ -17,8 +19,10 @@ function App() {
   const handleScreen = () => {
     if(time.minutes == time.seconds){
       alert("Set Atleast 15sec or more ")
+    }else{
+      setScreen(!screen);
     }
-    setScreen(!screen);
+    
   };
 
   const handleChange = (e) => {
@@ -45,8 +49,10 @@ function App() {
   return (
     <>
       {screen ? (
-        <>
-          <p>Hello Quiz App Project</p>
+        <section className="w-10/12 mx-auto flex mt-8">
+          <div className="text-start flex-1 mt-10">
+          <h1 className="text-large leading-large ">Play, Learn, Repeat: Discover Quizzes!</h1>
+          <p className="text-normal leading-normal">Quizzes for everyone! Select your preferences, set the timer (if you dare), and embark on a journey of self-discovery and learning.</p>
 
           <div className="wapper">
             <label htmlFor="question">
@@ -129,7 +135,7 @@ function App() {
             </select>
           </div>
 
-          <div className="wapper">
+          <div className="flex mt-5 flex-row justify-start items-center mx-auto w-8/12">
             <label htmlFor="minutes">Time In Min</label>
             <select onChange={handleChange2} name="minutes" id="minutes">
               <option value="0">0</option>
@@ -148,8 +154,13 @@ function App() {
             </select>
           </div>
 
-          <button onClick={handleScreen}>Start Quiz</button>
-        </>
+          <Button handleScreen={handleScreen} label={'Start Quiz'}/>
+
+        </div>
+        <div className="flex-1">
+          <img src={quiz} alt="" className="h-full w-full object-cover" />
+        </div>
+        </section>
       ) : (
         <>
           <Quizscreen handleScreen={handleScreen} inputValue={inputValue} time={time} />

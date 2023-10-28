@@ -9,6 +9,10 @@ export default {
       backgroundImage :{
         "custom" : "url(./assets/background.png)"
       },
+      screens:{
+        "laptop" : "1050px",
+        "mobile" : "700px"
+      },
       fontFamily:{
         "pop": ["Poppins",'sans-serif'],
         "robo": ["ROboto", "sans-serif"]
@@ -17,13 +21,20 @@ export default {
         "large": "52px",
         "medium" : "24px",
         "normal" : "16px",
-        "small" : "12px"
+        "small" : "13px"
       },
       lineHeight:{
         "large" : "72px",
         "medium" : "32px",
         "normal" : "22px",
         "small" : "10px"
+      },
+      colors:{
+        "primary" : "#5c45fd",
+        "scondary" : "#8a79ff",
+        "third" : "#2a2b6a",
+        "black":"161616",
+        "whitee": "efedff",
       }
     },
   },

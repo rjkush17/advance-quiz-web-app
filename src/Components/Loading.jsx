@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import loadingAni from "../assets/img/loading.gif"
 
 function Loading() {
   return (
-    <div>Loading...</div>
-  )
+    <div>
+      <img src={loadingAni} alt="Loading Animated GIF" />
+      <p>Loading...</p>
+    </div>
+  );
 }
 
-export default Loading
+export default Loading;

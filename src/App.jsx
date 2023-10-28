@@ -49,9 +49,9 @@ function App() {
   return (
     <>
       {screen ? (
-        <section className="w-10/12 mx-auto flex mt-8">
-          <div className="text-start flex-1 mt-10">
-          <h1 className="text-large leading-large ">Play, Learn, Repeat: Discover Quizzes!</h1>
+        <section className="w-[95%] mx-auto flex mt-8 items-center laptop:w-10/12 mobile:w-[85%]">
+          <div className=" text-center mobile:text-start flex-1 mt-10">
+          <h1 className=" text-medium leading-medium laptop:text-large laptop:leading-large  ">Play, Learn, Repeat: Discover <span className="text-primary">Quizzes!</span></h1>
           <p className="text-normal leading-normal">Quizzes for everyone! Select your preferences, set the timer (if you dare), and embark on a journey of self-discovery and learning.</p>
 
           <div className="wapper">
@@ -117,9 +117,9 @@ function App() {
           </div>
 
           <div className="wapper">
-            <label htmlFor="level">Default level</label>
+            <label htmlFor="level">At which difficulty level do you want to play?</label>
             <select onChange={handleChange} name="level" id="level">
-              <option value="">Any Type</option>
+              <option value="">Any level</option>
               <option value="&difficulty=easy">Easy</option>
               <option value="&difficulty=medium">Medium</option>
               <option value="&difficulty=hard">Hard</option>
@@ -127,7 +127,7 @@ function App() {
           </div>
 
           <div className="wapper">
-            <label htmlFor="type">Type</label>
+            <label htmlFor="type">Would you like to select a question type: 'Multiple' or 'True/False'?</label>
             <select onChange={handleChange} name="type" id="type">
               <option value="">Any type</option>
               <option value="&type=boolean">True & False</option>
@@ -145,20 +145,21 @@ function App() {
               <option value="5">5</option>
             </select>
 
-            <label htmlFor="seconds">seconds</label>
-            <select onChange={handleChange2} name="seconds" id="seconds">
-              <option value="15">15</option>
+            <label htmlFor="seconds">In Sec</label>
+            <select onChange={handleChange2} name="seconds" id="seconds"  >
+            <option value="0">0</option>
+              <option value="15" selected>15</option>
               <option value="30">30</option>
               <option value="45">45</option>
-              <option value="0">0</option>
+              
             </select>
           </div>
 
           <Button handleScreen={handleScreen} label={'Start Quiz'}/>
 
         </div>
-        <div className="flex-1">
-          <img src={quiz} alt="" className="h-full w-full object-cover" />
+        <div className="flex-1 hidden mobile:block">
+          <img src={quiz} alt="" className=" w-full object-cover" />
         </div>
         </section>
       ) : (

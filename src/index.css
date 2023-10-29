@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,500;0,700;0,900;0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -27,7 +27,12 @@
 
 @layer components{
     .wapper{
-
         @apply mt-5 flex flex-col w-8/12 mx-auto
+    }
+    .row{
+        @apply bg-white m-2 p-4 rounded text-xl text-zinc-500
+    }
+    .tag{
+        @apply text-small leading-small bg-slate-600 p-2 mx-2 text-white rounded-full
     }
 }

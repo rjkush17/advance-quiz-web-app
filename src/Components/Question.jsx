@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Button from "./Button";
 
 function Question({ quizData, handleScreen, handleAnswer, time }) {
   const [mixedAnswers, setMixedAnswers] = useState([]);
   const [timer, setTimer] = useState(0);
+
 
   useEffect(() => {
     const answers = [quizData.correct_answer, ...quizData.incorrect_answers];
@@ -21,41 +23,60 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
-         
-          handleAnswer("Time's up!"); 
-          clearInterval(interval); 
-          return 0; 
+          handleAnswer("[Not Answered]");
+          clearInterval(interval);
+          return 0;
         }
         return prevTimer - 1;
       });
     }, 1000);
 
+
     return () => {
       clearInterval(interval);
     };
-  }, [handleAnswer, time]); 
+  }, [handleAnswer, time]);
+
+
+  function convertHtmlEntities(str) {
+    return str.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+  }
+  
+
+  const htmlStr = quizData.question
+  const jsStr = convertHtmlEntities(htmlStr);
 
   return (
-    <div>
+    <div className="w-8/12 mx-auto  mt-24 ">
       <div className="">
-        <p>{quizData.question}</p>
-        <p>Time Left {timer}</p>
-        {quizData.type === "multiple" &&
-          mixedAnswers.map((val, ind) => {
+        <p className=" ml-auto font-bold text-white rounded bg-primary m-4  p-2 w-fit">
+          Time -: {timer} Secs
+        </p>
+        <div className="border-2 border-primary rounded">
+          <p className="w-full p-6 text-white bg-primary">
+            {" "}
+            Q.
+            {jsStr}
+          </p>
+
+          {mixedAnswers.map((val, ind) => {
             return (
-              <p onClick={() => handleAnswer(val)} key={ind}>
+              <p
+                className="border-2 border-zinc-500 m-4 p-3 rounded text-primary font-semibold text-normal hover:bg-primary hover:text-white hover:border-white"
+                onClick={() => handleAnswer(val)}
+                key={ind}
+              >
                 {val}
               </p>
             );
           })}
-        {quizData.type === "boolean" && (
-          <>
-            <p onClick={() => handleAnswer("True")}>True</p>
-            <p onClick={() => handleAnswer("False")}>False</p>
-          </>
-        )}
+          <Button handleScreen={handleScreen} label={"Go To Home"} />
+
+          <p className="text-center py-3 text-white bg-primary mt-3">
+          Click on an answer to submit it
+          </p>
+        </div>
       </div>
-      <button onClick={handleScreen}>Go to Home</button>
     </div>
   );
 }

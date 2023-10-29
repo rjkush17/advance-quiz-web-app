@@ -15,13 +15,15 @@ function App() {
     minutes : 0,
     seconds : 15
   })
+   
 
   const handleScreen = () => {
     if(time.minutes == time.seconds){
-      alert("Set Atleast 15sec or more ")
+      alert("Set Time Atleast 15sec or more ")
     }else{
       setScreen(!screen);
     }
+  
     
   };
 
@@ -45,6 +47,27 @@ function App() {
       };
     });
   };
+
+  function reset(){
+    setInputValue({
+      question: 5,
+      Catogaries: "",
+      level: "",
+      type: "",
+    })
+    setTime({
+      minutes : 0,
+    seconds : 15
+    })
+  }
+
+  const handlefunction = () => {
+    handleScreen();
+    reset();
+
+  }
+
+
 
   return (
     <>
@@ -92,11 +115,11 @@ function App() {
               </option>
               <option value="&category=14">Entertainment: Television</option>
               <option value="&category=15">Entertainment: Video Games</option>
-              <option value="&category=16">Entertainment: Board Games</option>
+              {/* <option value="&category=16">Entertainment: Board Games</option> */}
               <option value="&category=17">Science & Nature</option>
               <option value="&category=18">Science: Computers</option>
               <option value="&category=19">Science: Mathematics</option>
-              <option value="&category=20">Mythology</option>
+              {/* <option value="&category=20">Mythology</option> */}
               <option value="&category=21">Sports</option>
               <option value="&category=22">Geography</option>
               <option value="&category=23">History</option>
@@ -105,14 +128,14 @@ function App() {
               <option value="&category=26">Celebrities </option>
               <option value="&category=27"> Animals</option>
               <option value="&category=28"> Vehicles</option>
-              <option value="&category=29">Entertainment: Comics</option>
+              {/* <option value="&category=29">Entertainment: Comics</option> */}
               <option value="&category=30"> Science: Gadgets </option>
-              <option value="&category=31">
+              {/* <option value="&category=31">
                 Entertainment: Japanese Anime & Manga
               </option>
               <option value="&category=32">
                 Entertainment: Cartoon & Animations{" "}
-              </option>
+              </option> */}
             </select>
           </div>
 
@@ -164,7 +187,7 @@ function App() {
         </section>
       ) : (
         <>
-          <Quizscreen handleScreen={handleScreen} inputValue={inputValue} time={time} />
+          <Quizscreen handleScreen={handlefunction} inputValue={inputValue} time={time} />
         </>
       )}
     </>

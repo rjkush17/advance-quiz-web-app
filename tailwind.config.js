@@ -15,7 +15,7 @@ export default {
       },
       fontFamily:{
         "pop": ["Poppins",'sans-serif'],
-        "robo": ["ROboto", "sans-serif"]
+        "robo": ['Roboto', "sans-serif"]
       },
       fontSize:{
         "large": "52px",

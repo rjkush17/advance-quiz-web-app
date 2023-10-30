@@ -62,7 +62,7 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
           {mixedAnswers.map((val, ind) => {
             return (
               <p
-                className="border-2 border-zinc-500 m-4 p-3 rounded text-primary font-semibold text-normal hover:bg-primary hover:text-white hover:border-white mobile:hover:bg-white mobile:hover:text-primary mobile:hover:border-zinc-500 "
+                className="border-2 border-zinc-500 m-4 p-3 rounded text-primary font-semibold text-normal mobile:hover:bg-primary mobile:hover:text-white mobile:hover:border-white "
                 onClick={() => handleAnswer(val)}
                 key={ind}
               >

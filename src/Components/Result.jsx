@@ -80,7 +80,7 @@ function Result({ score, data, handleScreen, userAnswer }) {
             )}
           </div>
           <h4 className="text-medium leading-medium text-primary my-4">You've achieved a "{grade}" grade.</h4>
-          <div className="rounded bg-primary w-full mobile:mx-12 py-2">
+          <div className="rounded bg-primary w-full py-2">
             <div className="row"> Your Grade "<span className="text-primary">{grade}</span>"</div>
             <div className="row">Total Percentage "<span className="text-primary">{percentage}</span>%"</div>
             <div className="row">Total Correct Answer "<span className="text-primary">{score}</span>"</div>

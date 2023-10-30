@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }
+    label{
+        @apply text-small text-zinc-500 px-3 text-third
+    }
+    select{
+        @apply border-2 border-zinc-400 rounded-lg h-10 text-normal px-0 mobile:px-2 focus:border-third hover:border-third
+    }
+    option{
+        @apply hover:bg-primary hover:text-white
+    }
+}
+
+@layer components{
+    .wapper{
+        @apply mt-2 flex flex-col  mx-auto w-full mobile:w-8/12 mobile:mt-5
+    }
+    .row{
+        @apply bg-white text-zinc-500  rounded p-2 m-2 mobile:m-2 mobile:p-4 text-xl 
+    }
+    .tag{
+        @apply text-small leading-small bg-slate-600 p-2 mx-2 text-white rounded-full
+    }
+}

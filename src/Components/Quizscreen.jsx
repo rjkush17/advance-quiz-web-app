@@ -7,6 +7,7 @@ function Quizscreen({ handleScreen, inputValue, time }) {
   const [quizData, setQuizData] = useState();
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
+  const [userAnswer, setUserAnswer] = useState([]);
 
   useEffect(() => {
     let url = `https://opentdb.com/api.php?amount=${inputValue.question}${inputValue.Catogaries}${inputValue.level}${inputValue.type}`;
@@ -20,6 +21,8 @@ function Quizscreen({ handleScreen, inputValue, time }) {
       setScore(score + 1);
     } 
     setCurrent(current + 1);
+    userAnswer.push(answer);
+    setUserAnswer(userAnswer)
   };
 
   if (!quizData) {
@@ -34,7 +37,7 @@ function Quizscreen({ handleScreen, inputValue, time }) {
       />
     );
   } else {
-    return <Result score={score} data={quizData} handleScreen={handleScreen} />;
+    return <Result score={score} data={quizData} handleScreen={handleScreen} userAnswer={userAnswer} />;
   }
 }
 

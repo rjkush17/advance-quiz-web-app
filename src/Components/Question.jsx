@@ -47,7 +47,7 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
   const jsStr = convertHtmlEntities(htmlStr);
 
   return (
-    <div className="w-8/12 mx-auto  mt-24 ">
+    <div className=" mx-auto w-11/12 mobile:w-8/12 mt-24">
       <div className="">
         <p className=" ml-auto font-bold text-white rounded bg-primary m-4  p-2 w-fit">
           Time -: {timer} Secs
@@ -62,7 +62,7 @@ function Question({ quizData, handleScreen, handleAnswer, time }) {
           {mixedAnswers.map((val, ind) => {
             return (
               <p
-                className="border-2 border-zinc-500 m-4 p-3 rounded text-primary font-semibold text-normal hover:bg-primary hover:text-white hover:border-white"
+                className="border-2 border-zinc-500 m-4 p-3 rounded text-primary font-semibold text-normal hover:bg-primary hover:text-white hover:border-white mobile:hover:bg-white mobile:hover:text-primary mobile:hover:border-zinc-500 "
                 onClick={() => handleAnswer(val)}
                 key={ind}
               >

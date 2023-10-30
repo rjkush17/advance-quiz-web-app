@@ -72,10 +72,10 @@ function App() {
   return (
     <>
       {screen ? (
-        <section className="w-[95%] mx-auto flex mt-8 items-center laptop:w-10/12 mobile:w-[85%]">
+        <section className="w-[95%] mx-auto flex  items-center laptop:w-10/12 mobile:w-[85%] mt-8">
           <div className=" text-center mobile:text-start flex-1 mt-10">
           <h1 className=" text-medium leading-medium laptop:text-large laptop:leading-large  ">Play, Learn, Repeat: Discover <span className="text-primary">Quizzes!</span></h1>
-          <p className="text-normal leading-normal">Quizzes for everyone! Select your preferences, set the timer (if you dare), and embark on a journey of self-discovery and learning.</p>
+          <p className="text-sm leading-5 mobile:text-normal leading-normal">Quizzes for everyone! Select your preferences, set the timer (if you dare), and embark on a journey of self-discovery and learning.</p>
 
           <div className="wapper">
             <label htmlFor="question">

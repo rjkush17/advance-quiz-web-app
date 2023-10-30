@@ -36,12 +36,12 @@ function Result({ score, data, handleScreen, userAnswer }) {
   }
 
   return (
-    <div className="w-8/12 border-2 border-zinc-500 bg-white mx-auto mt-8 rounded pb-8">
+    <div className="border-2 border-zinc-500 w-[97%] bg-white mx-auto mt-8 rounded pb-8 mobile:w-8/12">
      
-      <div className="flex text-white text-medium leading-medium">
+      <div className="flex text-white mobile:text-medium leading-medium">
         <button
           className={`${
-            screens ? "bg-white text-primary w-[50%] py-4" : "bg-third w-[50%] py-4"
+            screens ? "bg-white text-primary w-[50%] py-2 mobile:py-4" : "bg-third w-[50%] py-2 mobile:py-4"
           }`}
           onClick={() => {
             handlescreens();
@@ -52,8 +52,8 @@ function Result({ score, data, handleScreen, userAnswer }) {
         <button
           className={`${
             !screens
-              ? "bg-white text-primary w-[50%] py-4"
-              : "bg-third text-white text-primary w-[50%] py-4"
+              ? "bg-white text-primary w-[50%] py-2 mobile:py-4"
+              : "bg-third text-white text-primary w-[50%] py-2 mobile:py-4"
           }`}
           onClick={() => {
             handlescreens();
@@ -67,8 +67,8 @@ function Result({ score, data, handleScreen, userAnswer }) {
         <div className="text-center mt-10">
           <h1 className={`${
             percentage >= 50
-              ? "text-green-700 text-3xl leading-large"
-              : "text-red-700 text-3xl leading-large"
+              ? "text-green-700 text-medium leading-medium mobile:text-3xl leading-large"
+              : "text-red-700 text-medium leading-medium mobile:text-3xl leading-large"
           }`}>
             {resultMessage}
           </h1>
@@ -80,7 +80,7 @@ function Result({ score, data, handleScreen, userAnswer }) {
             )}
           </div>
           <h4 className="text-medium leading-medium text-primary my-4">You've achieved a "{grade}" grade.</h4>
-          <div className="rounded bg-primary mx-12 py-2">
+          <div className="rounded bg-primary w-full mobile:mx-12 py-2">
             <div className="row"> Your Grade "<span className="text-primary">{grade}</span>"</div>
             <div className="row">Total Percentage "<span className="text-primary">{percentage}</span>%"</div>
             <div className="row">Total Correct Answer "<span className="text-primary">{score}</span>"</div>
@@ -91,10 +91,10 @@ function Result({ score, data, handleScreen, userAnswer }) {
       )}
 
       {!screens && (
-        <div className="w-11/12 mx-auto mt-12 ">
+        <div className=" mx-auto mt-2 p-1 w-full mobile:w-11/12  mt-12">
           {data.map((val, ind) => (
             <div key={ind}>
-              <h2 className="text-primary ">
+              <h2 className="text-primary">
                 Q-{ind + 1}. {val.question}
               </h2>
               <div className="flex">

@@ -19,7 +19,7 @@ You can see live demo - https://quiz-rishabh.vercel.app/
 To get a local copy of the code, clone it using git:
 
 ```
-git clone https://github.com/SafdarJamal/quiz-app.git
+git clone https://github.com/rjkush17/advance-quiz-web-app.git
 cd Quiz-vite
 ```
 
